@@ -21,6 +21,10 @@ TEST(test_05, basic_test_set) {
     ASSERT_TRUE(max_n(15,12)==0);
 }
 
+TEST(test_06, basic_test_set) {
+    ASSERT_TRUE(max_n(1,1)==1);
+} 
+
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
