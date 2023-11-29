@@ -1,18 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
-project(lab_2)
+project(labWork_2)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+add_executable(lab_2 main.cpp ../src/decarray.cpp)
+add_executable(tests ../test/tests.cpp ../src/decarray.cpp)
 
+find_package(GTest REQUIRED)
+target_link_libraries(tests GTest::GTest GTest::Main)
 
-include_directories(${INCLUDE_DIR})
-
-file(GLOB_RECURSE SOURCES LIST_DIRECTORIES false ${SOURCE_DIR}/*.cpp)
-
-add_library(lab_2_lib ${SOURCES})
-add_executable(lab_2_exe main.cpp)
-
-target_link_libraries(lab_2_exe PRIVATE lab_2_lib)
+target_include_directories(lab_2 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
