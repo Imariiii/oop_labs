@@ -13,3 +13,4 @@ install_manifest
 tests
 main
 build
+.vscode
